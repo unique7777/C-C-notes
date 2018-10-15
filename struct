@@ -1,0 +1,27 @@
+/*关于结构体对齐问题
+    一直简单以为结构体是以最大的数据类型对齐，经过实验
+    发现在32位系统，最大也只能以4个字节对齐
+        在64位系统，则没有这个限制*/
+ 
+
+#include<stdio.h>
+
+struct hallo
+{
+        int a;
+        double b;
+        char c;
+}hallo;
+
+int main()
+{
+        printf("%d\n",sizeof(hallo));
+
+        return 0;
+}
+
+
+
+/*在32位系统编译结果是16
+  在64位则是24
+  当不涉及double时，二者结果一致*/
